@@ -6,7 +6,6 @@ public class ObjectPool : MonoBehaviour {
 	public GameObject prefab;
 	public int amount;
 	private List<GameObject> _available = new List<GameObject>();
-	private List<GameObject> _inUse = new List<GameObject>();
 	
 	void Awake(){
 		InstantiateGameObjects(); 
@@ -23,13 +22,11 @@ public class ObjectPool : MonoBehaviour {
 		if(_available.Count > 0){
 			GameObject go = _available[0];
 			go.SendMessage("SetAwakeState", SendMessageOptions.RequireReceiver);
-			_inUse.Add(go);
 			_available.RemoveAt(0);
 			return go; 
 		}else{
 			GameObject go = Instantiate(prefab, transform.position, Quaternion.identity) as GameObject;
 			go.SendMessage("SetAwakeState", SendMessageOptions.RequireReceiver);
-			_inUse.Add(go);
 			return go;
 		}                  
 	}
@@ -37,6 +34,5 @@ public class ObjectPool : MonoBehaviour {
 	public void ReleaseGameObject(GameObject go){
 		go.SendMessage("SetInitialState", SendMessageOptions.RequireReceiver);
 		_available.Add(go);
-		_inUse.Remove(go); 
 	}
 } 
