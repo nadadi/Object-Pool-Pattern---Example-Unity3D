@@ -4,5 +4,5 @@ This repository is a Unity3D project, that shows an implementation about Object 
 
 For more information about the project, please visit the link below.
 
-https://gamedevn.wordpress.com/2015/09/28/optimizacion-rendimiento-videojuego-object-pool-pattern/
+https://gamedevn.wordpress.com/2015/09/27/optimizacion-rendimiento-videojuego-object-pool-pattern/
 
